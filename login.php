@@ -2,6 +2,7 @@
 
 session_start();
 include 'db.php';
+echo "<link rel='stylesheet' href='style.css'>";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];

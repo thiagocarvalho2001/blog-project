@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include 'db.php';
+echo "<link rel='stylesheet' href='style.css'>";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {

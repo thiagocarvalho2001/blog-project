@@ -1,6 +1,7 @@
 <?php 
 
 include 'db.php';
+echo "<link rel='stylesheet' href='style.css'>";
 
 session_start();
 

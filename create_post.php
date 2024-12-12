@@ -2,6 +2,7 @@
 
 session_start();
 include 'db.php';
+echo "<link rel='stylesheet' href='style.css'>";
 
 if(!isset($_SESSION['user_id'])) {
     echo "Login before to create a post.";

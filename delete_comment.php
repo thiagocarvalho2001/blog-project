@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-include 'db.php'; // Ensure this file contains the correct database connection
+include 'db.php';
 
 define('DB_NAME', 'blogproject');
 
@@ -15,19 +15,16 @@ if (!isset($_GET['id'])) {
 
 $commentId = $_GET['id'];
 
-// Debugging: Output the comment ID
 echo "Comment ID to delete: " . htmlspecialchars($commentId) . "<br>";
 
-// Check if the comment exists and belongs to the user
-$stmt = $pdo->prepare("SELECT * FROM comments WHERE id = :id AND user_id = :user_id");
+$stmt = $pdo->prepare("SELECT * FROM " . DB_NAME . ".comments WHERE id = :id AND user_id = :user_id");
 $stmt->execute(['id' => $commentId, 'user_id' => $_SESSION['user_id']]);
 
 if ($stmt->rowCount() === 0) {
     die("Comment does not exist or you do not have permission to delete it.");
 }
 
-// Proceed to delete the comment
-$deleteStmt = $pdo->prepare("DELETE FROM comments WHERE id = :id AND user_id = :user_id");
+$deleteStmt = $pdo->prepare("DELETE FROM " . DB_NAME . ".comments WHERE id = :id AND user_id = :user_id");
 $deleteStmt->execute(['id' => $commentId, 'user_id' => $_SESSION['user_id']]);
 
 if ($deleteStmt->rowCount() > 0) {
