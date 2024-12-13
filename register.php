@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->rowCount() > 0) {
             echo "Username or Email already in use.";
         } else {
-            $stmt = $pdo->prepare("INSERT INTO blogproject.users (username, email, password) VALUES (:username, :email, :password)");
+            $stmt = $pdo->prepare("INSERT INTO blogproject.users (username, email, password) 
+            VALUES (:username, :email, :password)");
             $stmt->execute(['username' => $username, 'email' => $email, 'password' => $hashed_password]);
             echo "Registered successfully!";
         }
