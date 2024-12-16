@@ -24,7 +24,7 @@ try {
     $stmt->execute();
     $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $query = "SELECT posts.*, category.name AS category_name, users.username
+    $query = "SELECT " . DB_NAME . ".posts.*, category.name AS category_name, users.username
               FROM " . DB_NAME . ".posts
               JOIN " . DB_NAME . ".category ON posts.category_id = category.id
               JOIN " . DB_NAME . ".users ON posts.user_id = users.id";

@@ -1,14 +1,21 @@
 <?php 
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'admin_check.php';
+include 'db.php';
+
+
+echo "<!DOCTYPE html>";
 echo "<link rel='stylesheet' href='style.css'>";
 
 
 $stmt = $pdo->prepare("SELECT comments.*, users.username AS 
-                       commenter, post.title AS post_title
-                       FROM comments
-                       JOIN users ON comments.user_id = user_id
-                       JOIN posts ON commetnts.post_id = posts.id");
+                       commenter, posts.title AS post_title
+                       FROM " . DB_NAME . ".comments 
+                       JOIN " . DB_NAME . ".users ON comments.user_id = user_id
+                       JOIN " . DB_NAME . ".posts ON comments.post_id = posts.id");
 
 $stmt->execute();
 $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
