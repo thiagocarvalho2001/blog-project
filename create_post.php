@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 include 'db.php';
 echo "<link rel='stylesheet' href='style.css'>";
@@ -15,22 +18,40 @@ if(!isset($_SESSION['user_id'])) {
     exit;
 }
 
-try{
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+try {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = $_POST['title'];
         $content = $_POST['content'];
         $category_id = $_POST['category_id'];
         $userId = $_SESSION['user_id'];
 
-        $stmt = $pdo->prepare("INSERT INTO " . DB_NAME . ".posts 
-        (user_id, title, content, category_id, created_at)
-        VALUES (:user_id, :title, :content, :category_id, NOW())");
-        $stmt->execute(['user_id' => $userId, 'title' => $title, 'content' => $content,
-        'category_id' => $category_id ]);
+        if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+            $uploadDir = '/opt/lampp/htdocs/blog/uploads/'; 
+            $imageName = basename($_FILES['image']['name']);
+            $uploadFile = $uploadDir . $userId . '_' . time() . '_' . $imageName;
+            
 
-        echo "Post created successfully";
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                $stmt = $pdo->prepare("INSERT INTO " . DB_NAME . ".posts 
+                (user_id, title, image, content, category_id, created_at)
+                VALUES (:user_id, :title, :image, :content, :category_id, NOW())");
+                $stmt->execute([
+                    'user_id' => $userId,
+                    'title' => $title,
+                    'image' => $imageName, 
+                    'content' => $content,
+                    'category_id' => $category_id
+                ]);
+
+                echo "Post created successfully";
+            } else {
+                echo "Error uploading the image.";
+            }
+        } else {
+            echo "No image uploaded or there was an upload error.";
+        }
     }
-} catch (PDOException $e){
+} catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 
@@ -45,13 +66,15 @@ try{
     <title>Document</title>
 </head>
 <body>
-    <form action="create_post.php" method="POST">
+    <form action="create_post.php" method="POST" enctype="multipart/form-data">
         <input type="text" name="title" required> <br>
         <input type="text" name="content" required> <br>
-        <label for="category_id">Category:
+        <label for="imageUpload">Choose an image to upload:</label>
+        <input type="file" name="image" accept="image/*" required> <br>
+        <label for="category_id">Category:</label>
         <select name="category_id" id="category_id" required>
-            <?php foreach ($category as $cat ): ?>
-                <option value=" <?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></option>
+            <?php foreach ($category as $cat): ?>
+                <option value="<?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></option>
             <?php endforeach; ?>
         </select>
         <button type="submit">Create</button>

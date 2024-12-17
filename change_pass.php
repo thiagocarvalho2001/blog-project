@@ -43,10 +43,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <form action="change_pass.php" method="post">
-        <input type="password" name="current_password" required> <br>
-        <input type="password" name="new_password" required> <br>
-        <input type="password" name="new_password_confirm" required> <br>
-        <button type="submit">Change password.</button>
+        <input type="password" name="current_password" placeholder="Current password" required> <br>
+        <input type="password" name="new_password" placeholder="New password" required> <br>
+        <input type="password" name="new_password_confirm" placeholder="New password" required> <br>
+        <button type="submit">Change password</button>
     </form>
 </body>
 </html>
