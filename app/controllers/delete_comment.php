@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-include 'db.php';
+include '../models/db.php';
 
 define('DB_NAME', 'blogproject');
 
@@ -34,3 +34,7 @@ if ($deleteStmt->rowCount() > 0) {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <title>DELETE COMMENT</title>

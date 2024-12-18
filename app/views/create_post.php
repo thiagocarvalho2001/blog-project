@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../models/db.php';
+echo "<link rel='stylesheet' href='../../public/css/style.css'>";
 
 define('DB_NAME', 'blogproject');
 
@@ -63,12 +63,12 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CREATE POST</title>
 </head>
 <body>
     <form action="create_post.php" method="POST" enctype="multipart/form-data">
-        <input type="text" name="title" required> <br>
-        <input type="text" name="content" required> <br>
+        <input type="text" name="title" placeholder="Title" required> <br>
+        <input type="text" name="content" placeholder="Content" required> <br>
         <label for="imageUpload">Choose an image to upload:</label>
         <input type="file" name="image" accept="image/*" required> <br>
         <label for="category_id">Category:</label>

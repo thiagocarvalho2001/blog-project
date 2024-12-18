@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'db.php';
+include '../app/models/db.php';
 
 session_start();
 
@@ -28,3 +28,7 @@ if(!$user || $user['is_admin'] != 1){
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <title>ADM CHECK</title>

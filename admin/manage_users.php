@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 include 'admin_check.php';
 
-echo "<link rel='stylesheet' href='style.css'>";
+echo "<link rel='stylesheet' href='../public/css/style.css'>";
 
 $stmt = $pdo->prepare("SELECT id, username, email, is_admin FROM " . DB_NAME . ".users");
 $stmt->execute();

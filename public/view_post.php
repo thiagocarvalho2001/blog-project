@@ -1,7 +1,7 @@
 <?php 
 
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../app/models/db.php';
+echo "<link rel='stylesheet' href='../public/css/style.css'>";
 
 session_start();
 
@@ -75,3 +75,8 @@ foreach ($comments as $comment) {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <title>POST VIEW</title>
+    <link rel='stylesheet' href='public/css/style.css'>

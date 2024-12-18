@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-include 'db.php';
+include '../models/db.php';
 
 if(!isset($_SESSION['user_id'])) {
     echo "Login First to delete a post.";
@@ -26,3 +26,7 @@ if($stmt->rowCount() > 0){
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <title>DELETE POST</title>

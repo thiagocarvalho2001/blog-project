@@ -1,8 +1,9 @@
 <?php
 
 session_start();
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../app/models/db.php';
+
+echo "<link rel='stylesheet' href='../../public/css/style.css'>";
 define('DB_NAME', 'blogproject');
 
 if(!isset($_SESSION['user_id'])) {
@@ -54,7 +55,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDIT POST</title>
 </head>
 <body>
     <form action="edit_post.php?id=<?php echo $postId; ?>" method="post">

@@ -1,0 +1,6 @@
+I did this blog to improve my skills with PHP.
+I am trying to learn more about it. I am using a book to learn PHP and I am trying to practice what I have learned by doing
+projects. I am trying to make a simple web application that allows users to create and manage their own to-do lists. 
+I am using a MySQL database to store the data.
+
+DB schema in project.

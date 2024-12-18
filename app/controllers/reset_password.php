@@ -1,6 +1,6 @@
 <?php 
 
-include 'db.php';
+include '../models/db.php';
 session_start();
 
 define('DB_NAME', 'blogproject');
@@ -29,7 +29,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <title>RESET PASSWORD</title>
 </head>
 <body>
     <form method="post">

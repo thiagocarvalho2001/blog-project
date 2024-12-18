@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../models/db.php';
+echo "<link rel='stylesheet' href='../../public/css/style.css'>";
 
 if(!isset($_SESSION['user_id'])) {
     echo "You must be logged to change your password.";
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CHANGE PASSWORD</title>
 </head>
 <body>
     <form action="change_pass.php" method="post">

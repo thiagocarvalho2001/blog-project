@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 
-include 'db.php';
+include '../app/models/db.php';
 define('DB_NAME', 'blogproject');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Reset</title>
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <title>PASSWORD RESET</title>
 </head>
 <body>
     <form method="post">

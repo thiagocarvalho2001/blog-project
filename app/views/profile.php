@@ -1,8 +1,8 @@
 <?php 
 
 session_start();
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../models/db.php';
+echo "<link rel='stylesheet' href='../../public/css/style.css'>";
 
 
 if(!isset($_SESSION['user_id'])) {
@@ -38,3 +38,7 @@ foreach($posts as $post){
 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <title>PROFILE</title>

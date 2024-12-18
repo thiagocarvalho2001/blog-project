@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../models/db.php';
+echo "<link rel='stylesheet' href='../../public/css/style.css'>";
 
 if (!isset($_SESSION['user_id'])) {
     echo "You must be logged to edit your profile.";
@@ -39,7 +39,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDIT PROFILE</title>
 </head>
 <body>
     <form action="prof_edit.php" method="post">

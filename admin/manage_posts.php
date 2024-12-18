@@ -1,12 +1,12 @@
 <?php 
 
-include "db.php";
+include '../app/models/db.php';
 
 session_start();
 
 define("DB_NAME", "blogproject");
 
-echo "<link rel='stylesheet' href='style.css'>";
+echo "<link rel='stylesheet' href='../public/css/style.css'>";
 
 $stmt = $pdo->prepare("SELECT posts.*, users.username 
                        FROM " . DB_NAME . ".posts 

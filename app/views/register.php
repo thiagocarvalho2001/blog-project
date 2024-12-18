@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../models/db.php';
+echo "<link rel='stylesheet' href='../../public/css/style.css'>";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>REGISTER USER</title>
 </head>
 <body>
     <form method="POST" action="register.php">

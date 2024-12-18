@@ -1,6 +1,6 @@
 <?php 
-include 'db.php';
-echo "<link rel='stylesheet' href='style.css'>";
+include '../app/models/db.php';
+echo "<link rel='stylesheet' href='public/css/style.css'>";
 
 define('DB_NAME', 'blogproject');
 
@@ -82,7 +82,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
+    <title>INDEX POSTS</title>
 </head>
 <body>
     <h1>Posts</h1>

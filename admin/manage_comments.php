@@ -4,11 +4,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include 'admin_check.php';
-include 'db.php';
-
+include '../app/models/db.php';
 
 echo "<!DOCTYPE html>";
-echo "<link rel='stylesheet' href='style.css'>";
+echo "<link rel='stylesheet' href='../public/css/style.css'>";
 
 
 $stmt = $pdo->prepare("SELECT comments.*, users.username AS 
@@ -31,3 +30,4 @@ foreach($comments as $comment) {
 }
 
 ?>
+<title>MANAGE COMMENTS</title>
